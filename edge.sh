@@ -13,7 +13,7 @@ elif [[ -f /var/lib/edge_installed ]]; then
 else
   echo "Downloading source..."
   tmpdir="/tmp/tmp.$(( $RANDOM * $RANDOM * $RANDOM * $RANDOM ))"
-  git clone --depth=1 ${REPO} ${tmpdir}
+  git clone -b feature/redesign --depth=1 ${REPO} ${tmpdir}
   if [[ $? -eq 0 ]]; then
     rm -rf ${INSTALLDIR}
     mv ${tmpdir} ${INSTALLDIR}
