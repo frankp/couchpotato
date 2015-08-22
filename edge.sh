@@ -9,12 +9,12 @@ if [ -z "$EDGE" ]; then
 elif [[ -f /var/lib/edge_installed ]]; then
   echo "Updating source..."
   mkdir -p ${INSTALLDIR} && cd ${INSTALLDIR}
-  git checkout feature/redesign
+  git checkout develop
   git pull
 else
   echo "Downloading source..."
   tmpdir="/tmp/tmp.$(( $RANDOM * $RANDOM * $RANDOM * $RANDOM ))"
-  git clone -b feature/redesign --depth=1 ${REPO} ${tmpdir}
+  git clone -b develop --depth=1 ${REPO} ${tmpdir}
   if [[ $? -eq 0 ]]; then
     rm -rf ${INSTALLDIR}
     mv ${tmpdir} ${INSTALLDIR}
