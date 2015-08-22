@@ -9,6 +9,7 @@ if [ -z "$EDGE" ]; then
 elif [[ -f /var/lib/edge_installed ]]; then
   echo "Updating source..."
   mkdir -p ${INSTALLDIR} && cd ${INSTALLDIR}
+  git checkout feature/redesign
   git pull
 else
   echo "Downloading source..."
